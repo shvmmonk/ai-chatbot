@@ -41,7 +41,8 @@ public class Main {
 
             String jsonBody = "{\"model\":\"llama-3.3-70b-versatile\",\"messages\":[" + messagesJson + "]}";
 
-            HttpClient client = HttpClient.newHttpClient();
+            try {
+                HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("https://api.groq.com/openai/v1/chat/completions"))
                     .header("Authorization", "Bearer " + apiKey)
@@ -61,6 +62,11 @@ public class Main {
             System.out.println("Jarvis: " + aiReply);  // print kiya
 
             history.add(new Message("assistant", aiReply));  // history mein add kiya
+            } catch (Exception e) {
+                System.out.println("Something went wrong" + e.getMessage());
+                System.out.println("Please check your internet connection and try again");
+                System.out.println("========================\n");
+            }
         }
     }
 }
