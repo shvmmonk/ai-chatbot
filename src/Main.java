@@ -15,8 +15,10 @@ public class Main {
         List<Message> history = new ArrayList<>();
         history.add(new Message("system", "You are a helpful and friendly assistant named Jarvis."));
 
+                   System.out.println("Welcome ⭐");
         while (true) {
-            System.out.print("You: ");
+ 
+            System.out.print("What do you want to talk about🤨🤨: ");
             String userMessage = sc.nextLine();
 
             if (userMessage.equalsIgnoreCase("exit")) {
